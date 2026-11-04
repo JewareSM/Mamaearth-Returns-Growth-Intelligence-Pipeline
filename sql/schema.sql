@@ -1,16 +1,16 @@
--- Create the database if it does not already exist.
+Create the database if it does not already exist.
 CREATE DATABASE IF NOT EXISTS mamaearth;
 
--- Select the mamaearth database for subsequent operations.
+Select the mamaearth database for subsequent operations.
 USE mamaearth;
 
--- Drop the orders table if it already exists.
+Drop the orders table if it already exists.
 DROP TABLE IF EXISTS orders;
 
--- Drop the products table if it already exists.
+Drop the products table if it already exists.
 DROP TABLE IF EXISTS products;
 
--- Drop the customers table if it already exists.
+Drop the customers table if it already exists.
 DROP TABLE IF EXISTS customers;
 
 -- Create the customers table to store customer-related information.
