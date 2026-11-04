@@ -6,7 +6,7 @@ SELECT
 FROM orders AS o
 JOIN products AS p
 ON o.product_id = p.product_id;
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #2. Compare total orders with the number of rated orders to identify orders with missing ratings.
 SELECT
@@ -14,7 +14,7 @@ SELECT
     COUNT(rating) AS count_rating,
     COUNT(*) - COUNT(rating) AS difference
 FROM orders;
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #3. Identify customers who have not placed any orders (zero orders).
 
@@ -33,7 +33,7 @@ WHERE customer_id NOT IN (
     SELECT DISTINCT customer_id
     FROM orders
 );
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #4. Calculate city-wise order counts and return rates, filtering cities with return rates above 20%.
 SELECT
@@ -47,7 +47,7 @@ JOIN customers AS c
 GROUP BY c.city
 HAVING return_rate_pct > 20
 ORDER BY return_rate_pct DESC;
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #5. Rank customers by total spending and retrieve the top 5, then use LIMIT and OFFSET to fetch ranks 3–5 while ensuring consistent ordering for tied spending amounts.
 
@@ -78,9 +78,53 @@ JOIN customers AS c
 GROUP BY c.customer_id, c.name
 ORDER BY total_spend DESC, c.customer_id ASC
 LIMIT 3 OFFSET 2;
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+#6. Calculate category-wise order count and revenue using three-table JOIN, and sort categories by revenue in descending order.
+SELECT
+    p.category,
+    COUNT(*) AS order_count,
+    ROUND(SUM(o.quantity * p.price * (1 - IFNULL(o.discount_pct, 0) / 100)), 2) AS category_revenue
+FROM orders AS o
+JOIN products AS p
+    ON o.product_id = p.product_id
+JOIN customers AS c
+    ON o.customer_id = c.customer_id
+GROUP BY p.category
+ORDER BY category_revenue DESC;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+#7. Retrieve customers whose names start with the letter 'A' using the LIKE pattern matching operator.
+SELECT customer_id, name
+FROM customers
+WHERE name LIKE 'A%';
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#8. Retrieve all unique acquisition sources used by customers, excluding duplicate values.
+SELECT DISTINCT acquisition_source
+FROM customers;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#9. Add a loyalty tier column, assign Gold or Silver based on city tier, verify customer counts by loyalty tier, and display all customer records to confirm the changes.
+
+##9a. Add a new loyalty_tier column to the customers table.
+ALTER TABLE customers
+ADD COLUMN loyalty_tier VARCHAR(10);
+
+##9b. Assign Gold to Tier 1 cities and Silver to all other city tiers for every customer.
+UPDATE customers
+SET loyalty_tier = CASE
+    WHEN city_tier = 1 THEN 'Gold'
+    ELSE 'Silver'
+END;
+
+##9c. Verify the number of customers in each loyalty tier.
+SELECT
+    loyalty_tier,
+    COUNT(*) AS customer_count
+FROM customers
+GROUP BY loyalty_tier;
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
