@@ -49,6 +49,7 @@ INSERT INTO customers (customer_id, name, city, city_tier, signup_date, acquisit
 -- Verify the total number of records in the customers table after data insertion.
 SELECT COUNT(*) AS total_records
 FROM customers;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- Insert product records into the products table.
 INSERT INTO products (product_id, product_name, category, price) VALUES
@@ -72,6 +73,7 @@ INSERT INTO products (product_id, product_name, category, price) VALUES
 -- Verify the total number of records in the products table after data insertion.
 SELECT COUNT(*) AS total_records
 FROM products;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 INSERT INTO orders (order_id, customer_id, product_id, order_date, quantity, discount_pct, payment_method, rating, returned) VALUES
 ('O0001','C012','P04','2026-03-18',2,10,'upi',2,0),
@@ -258,3 +260,4 @@ INSERT INTO orders (order_id, customer_id, product_id, order_date, quantity, dis
 -- Verify the total number of records in the orders table after data insertion.
 SELECT COUNT(*) AS total_records
 FROM orders;
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
