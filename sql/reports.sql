@@ -6,7 +6,7 @@ SELECT
 FROM orders AS o
 JOIN products AS p
 ON o.product_id = p.product_id;
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #2. Compare total orders with the number of rated orders to identify orders with missing ratings.
 SELECT
@@ -14,25 +14,26 @@ SELECT
     COUNT(rating) AS count_rating,
     COUNT(*) - COUNT(rating) AS difference
 FROM orders;
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #3. Identify customers who have not placed any orders (zero orders).
 
-    ##3a. Find customers who have not placed any orders using LEFT JOIN.
-    SELECT c.customer_id, c.name
-    FROM customers c
-    LEFT JOIN orders o
-    ON c.customer_id = o.customer_id
-    GROUP BY c.customer_id, c.name
-    HAVING COUNT(o.order_id) = 0;
+##3a. Find customers who have not placed any orders using LEFT JOIN.
+SELECT c.customer_id, c.name
+FROM customers AS c
+LEFT JOIN orders AS o
+ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.name
+HAVING COUNT(o.order_id) = 0;
 
-    ##3b. Find customers who have not placed any orders using NOT IN.
-    SELECT customer_id, name
-    FROM customers
-    WHERE customer_id NOT IN (
-        SELECT DISTINCT customer_id
-        FROM orders
-    );
+##3b. Find customers who have not placed any orders using NOT IN.
+SELECT customer_id, name
+FROM customers
+WHERE customer_id NOT IN (
+    SELECT DISTINCT customer_id
+    FROM orders
+);
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
