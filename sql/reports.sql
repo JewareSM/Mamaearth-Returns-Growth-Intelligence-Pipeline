@@ -18,7 +18,7 @@ FROM orders;
 
 #3 Identify customers who have not placed any orders (zero orders).
 
-Find customers who have not placed any orders using LEFT JOIN.
+##3a Find customers who have not placed any orders using LEFT JOIN.
 SELECT c.customer_id, c.name
 FROM customers c
 LEFT JOIN orders o
@@ -26,7 +26,7 @@ ON c.customer_id = o.customer_id
 GROUP BY c.customer_id, c.name
 HAVING COUNT(o.order_id) = 0;
 
-Find customers who have not placed any orders using NOT IN.
+##3b Find customers who have not placed any orders using NOT IN.
 SELECT customer_id, name
 FROM customers
 WHERE customer_id NOT IN (
