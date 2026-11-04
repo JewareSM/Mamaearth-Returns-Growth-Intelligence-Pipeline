@@ -1,4 +1,4 @@
-##1 -- Calculate total orders, total revenue, and average order value after applying discounts, treating NULL discounts as 0%.
+#1 Calculate total orders, total revenue, and average order value after applying discounts, treating NULL discounts as 0%.
 SELECT
     COUNT(*) AS total_orders,
     ROUND(SUM(o.quantity * p.price * (1 - IFNULL(o.discount_pct, 0) / 100)), 2) AS total_revenue,
@@ -6,5 +6,16 @@ SELECT
 FROM orders AS o
 JOIN products AS p
 ON o.product_id = p.product_id;
+
+
+#2 Compare total orders with the number of rated orders to identify orders with missing ratings.
+SELECT
+    COUNT(*) AS count_star,
+    COUNT(rating) AS count_rating,
+    COUNT(*) - COUNT(rating) AS difference
+FROM orders;
+
+
+
 
 
