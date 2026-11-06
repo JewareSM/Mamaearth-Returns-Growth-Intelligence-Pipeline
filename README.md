@@ -1,6 +1,6 @@
 
+<img width="1500" height="500" alt="mamaearth-Capital-Mall-Vasai" src="https://github.com/user-attachments/assets/04476674-3d61-4268-b6a3-9ff0cd5bc32b" />
 
-![Uploading mamaearth-Capital-Mall-Vasai.png…]()
 
 
 # Mamaearth-Returns-Growth-Intelligence-Pipeline
