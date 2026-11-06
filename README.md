@@ -1,9 +1,8 @@
+# Mamaearth-Returns-Growth-Intelligence-Pipeline
+
 
 <img width="1500" height="500" alt="mamaearth-Capital-Mall-Vasai" src="https://github.com/user-attachments/assets/04476674-3d61-4268-b6a3-9ff0cd5bc32b" />
 
-
-
-# Mamaearth-Returns-Growth-Intelligence-Pipeline
 End-to-end Mamaearth returns analysis and growth intelligence covering SQL reporting, data cleaning and exploratory data analysis (EDA) using Python and Pandas, and a Gemini-powered Situation-Complication-Resolution (SCR) business narrative with an offline fallback.
 
 Three connected layers: **SQL -> Python/pandas -> GenAI narrator**.
