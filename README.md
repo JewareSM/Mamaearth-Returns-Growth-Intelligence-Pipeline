@@ -1,11 +1,10 @@
-# Mamaearth-Returns-Growth-Intelligence-Pipeline
+# 📦 Mamaearth Returns & Growth Intelligence Pipeline
 
 
 <img width="1500" height="500" alt="mamaearth-Capital-Mall-Vasai" src="https://github.com/user-attachments/assets/04476674-3d61-4268-b6a3-9ff0cd5bc32b" />
 
 End-to-end Mamaearth returns analysis and growth intelligence covering SQL reporting, data cleaning and exploratory data analysis (EDA) using Python and Pandas, and a Gemini-powered Situation-Complication-Resolution (SCR) business narrative with an offline fallback.
 
-# 📦 Mamaearth Returns & Growth Intelligence Pipeline
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-EDA-150458?logo=pandas&logoColor=white)
@@ -383,5 +382,3 @@ January only looked best because of two bulk orders (O0011 and O0098). **March i
 ## 👤 Author
 
 **Shubham Jeware**, BI / Data Analyst
-
-If you found this project useful, please give it a ⭐
