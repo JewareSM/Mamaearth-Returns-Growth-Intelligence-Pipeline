@@ -1,0 +1,5 @@
+Situation: After removing duplicate double-submitted orders, Mamaearth's cleaned revenue is INR 97,358.30. The raw total reported earlier was INR 99,860.20. The gap of INR 2,501.90 comes only from the duplicate rows, not from filling missing values.
+
+Complication: Cash on Delivery is the main problem. COD orders are returned 44.4% of the time, compared with 18.9% for UPI and 14.7% for CARD. The risk is highest for COD orders in Tier-2 cities, where 54.5% are returned. Revenue also looks misleading: January seems to be the best month at INR 29,582.10, but this is caused by two bulk orders. Without them it is only INR 11,637.10.
+
+Resolution: Plan with the corrected trend, where March is the true peak month at INR 20,318.90. Reduce COD returns first in Tier-2 cities with order confirmation calls and small discounts for prepaid payment. Review bulk orders separately so that they do not distort monthly revenue reports.
